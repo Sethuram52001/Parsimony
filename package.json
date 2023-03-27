@@ -1,0 +1,35 @@
+{
+  "name": "Parsimony",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Sethuram52001/Parsimony.git",
+  "author": "Sethuram <sethuram52001@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=development node --watch server",
+    "execute-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint . --fix",
+      "prettier --write ."
+    ]
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
